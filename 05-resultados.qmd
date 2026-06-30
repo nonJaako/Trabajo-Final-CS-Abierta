@@ -2,3 +2,40 @@
 title: "Resultados"
 ---
 Interpreta resultados, limitaciones y aportes.
+
+# Resultados
+
+## Análisis descriptivo y bivariado
+
+La variable dependiente, escala sumativa de satisfacción con la vida, que suma 4 ítems con un rango total de 4 a 20, muestra un promedio de nivel medio alto de satisfacción con la vida, con poca dispersión de respuestas (media = 15.25, SD = 2.58). La asimetría de la variable es leve y negativa (Sk = -0.58), lo que indica que la mayoría de las personas se concentran en niveles altos de satisfacción con la vida.
+
+En cuanto a las variables explicativas, la escala sumativa de salud mental, que también va de 4 a 20, presenta un alto promedio (media = 16.5, SD = 2.98), con una asimetría negativa y medianamente alta (Sk = -1.04). El promedio de la variable salud física, que va de 1 a 5, muestra una buena salud física percibida, con baja dispersión (media = 3.47, SD = 0.86) y asimetría negativa moderada (Sk = -0.44). La variable de apoyo en el trabajo doméstico (ATD), que va de 1 a 4, tiene un promedio cercano a 4, la categoría de "no recibió apoyo" (media = 3.72, SD = 0.84), con una asimetría fuertemente negativa (Sk = -2.76). La variable dicotómica de tiempo libre indica que el 95% de los individuos realizó actividades de tiempo libre (media = 0.96, SD = 0.21). Por último, la variable de seguridad, que va de 1 a 3, tiene un promedio cercano al valor mínimo (media = 1.19, SD = 0.49), con asimetría positiva y fuerte inclinación hacia la izquierda (Sk = 2.62).
+
+Respecto al análisis bivariado, la salud mental presenta la mayor asociación con la satisfacción con la vida, una correlación fuerte, positiva y estadísticamente significativa (r = 0.591; p < .001). La salud física muestra diferencias estadísticamente significativas (Chi² = 457.1; p < .001) según el test de Kruskal-Wallis. El tiempo libre también se asocia significativamente con la satisfacción con la vida: quienes disponen de tiempo libre presentan niveles promedio más altos (15.29) que quienes no lo tienen (14.32), diferencia estadísticamente significativa (t = -4.901; p < .001). La seguridad muestra una correlación negativa, débil pero significativa (rho = -0.102; p < .001). Por último, el apoyo en el trabajo doméstico no presenta una relación significativa con la satisfacción con la vida (rho = 0.003; p = 0.846).
+
+## Análisis del modelo
+
+### Modelos parciales
+
+Se estimaron dos modelos parciales de regresión lineal múltiple. El primero, con las variables "Salud Mental" y "Salud Física", muestra que ambas tienen una significancia estadística alta (p < 0.001 en ambos casos) y un efecto positivo sobre la satisfacción con la vida, con una intensidad fuerte para salud mental (Std. b = .532) y moderada para salud física (Std. b = .180). El R² ajustado del modelo (.378) indica que estas dos variables explican el 37.8% de la varianza en la satisfacción con la vida.
+
+El segundo modelo parcial, con las variables "Tiempo Libre" y "Apoyo en el Trabajo Doméstico", indica que el tiempo libre es estadísticamente significativo (p < .001), mientras que el apoyo en el trabajo doméstico no lo es (p = .677). El R² ajustado de este modelo es considerablemente más bajo (.006), explicando solo el 0.6% de la varianza.
+
+### Modelo completo
+
+En el modelo completo, que incorpora las cinco variables explicativas, la salud mental (b1 = .454, p < .001) y la salud física (b1 = .541, p < .001) mantienen efectos positivos y robustos, siendo la salud física el predictor más fuerte según los coeficientes estandarizados (Std. b = .541), seguida de la salud mental (Std. b = .454). El tiempo libre también resulta significativo (b1 = .441, p < .005), confirmando la hipótesis inicial. El apoyo en el trabajo doméstico no alcanza significancia estadística (p = .262), aunque su coeficiente es negativo, en línea con la dirección hipotetizada. La variable de seguridad tampoco alcanza significancia estadística en el modelo completo (p > .005).
+
+### Modelos por género
+
+Se estimaron modelos separados para hombres y mujeres con el fin de evaluar si los factores que inciden en la satisfacción con la vida operan de manera similar en ambos grupos. En ambos casos, la salud mental es el predictor más fuerte (hombres: Std. b = 0.542, p < 0.001; mujeres: Std. b = 0.506, p < 0.001).
+
+En el modelo para hombres (R² = 0.393, p < .001), además de la salud mental, el tiempo libre (Std. b = 0.049, p < .001) y la salud física (Std. b = 0.169, p < 0.001) muestran efectos positivos y significativos. La seguridad resulta significativa pero de baja magnitud (Std. b = -0.033, p = 0.042). El apoyo en tareas domésticas no muestra relación significativa (p = 0.872).
+
+En el modelo para mujeres (R² = 0.368, p < .001), la salud física es el segundo predictor más fuerte (Std. b = 0.205, p < .001). La seguridad no alcanza significación estadística (Std. b = -0.027, p = 0.178), y tanto el tiempo libre (Std. b = 0.013, p = 0.525) como el apoyo en tareas domésticas (Std. b = -0.031, p = 0.119) carecen de efectos significativos.
+
+Estos resultados muestran que, si bien la salud física y mental son factores clave en ambos géneros, existen matices relevantes: en los hombres el tiempo libre emerge como un factor relevante, mientras que en las mujeres destaca con mayor fuerza el rol de la salud física. La seguridad muestra efectos significativos solo en el modelo masculino, y el apoyo en las tareas domésticas no resulta significativo en ningún grupo.
+
+::: {.content-visible when-format="html"}
+*La tabla de coeficientes de los modelos de regresión será incorporada por el 
+equipo en una sección posterior.*
+:::
