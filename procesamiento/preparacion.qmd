@@ -23,7 +23,7 @@ pacman::p_load(
 options(scipen = 999)
 
 # 2. Base de datos
-load("../input/Base de datos EBS 2023.RData")
+load("input/Base de datos EBS 2023.RData")
 
 # 3. Selección de casos y variables con quiebres de línea
 Base_final <- EBS_2023_vp %>%
@@ -107,4 +107,4 @@ Base_final <- Base_final %>%
   ))
 
 # 9. Guardar base tratada en la carpeta input
-save(Base_final, file = "../input/base_preparada.RData")
+save(Base_final, file = "input/base_preparada.RData")
