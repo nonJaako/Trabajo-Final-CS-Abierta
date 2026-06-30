@@ -34,13 +34,14 @@ Estos resultados muestran que, si bien la salud física y mental son factores cl
 
 ### Tabla comparativa de modelos de regresión
 
+
 ```{r}
 #| label: tbl-regresiones
 #| echo: false
 #| results: asis
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(sjPlot, knitr)
+pacman::p_load(sjPlot, knitr, modelsummary)
 
 load("output/modelos_regresion.RData")
 
@@ -55,15 +56,14 @@ if (knitr::is_html_output()) {
     collapse.se = TRUE
   )
 } else {
-  # Para PDF usa modelsummary que sí genera LaTeX
-  pacman::p_load(modelsummary)
   modelsummary(
     list("M1" = model1, "M2" = model2, "M3" = modelPT, 
          "M4" = modelH, "M5" = modelM),
     title = "Tabla 1. Modelos de Regresión Lineal Múltiple para Satisfacción con la Vida",
     stars = TRUE,
     statistic = "std.error",
-    output = "latex"
+    output = "kableExtra",
+    booktabs = TRUE
   )
 }
 ```

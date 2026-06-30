@@ -68,6 +68,7 @@
 
 
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -94,15 +95,48 @@
 \makeatother
 
 
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \ifLuaTeX
-\usepackage[bidi=basic]{babel}
+\usepackage[bidi=basic,shorthands=off]{babel}
 \else
-\usepackage[bidi=default]{babel}
+\usepackage[bidi=default,shorthands=off]{babel}
 \fi
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
 
 
 \setlength{\emergencystretch}{3em} % prevent overfull lines
@@ -288,6 +322,28 @@
 \renewcommand*{\appendixname}{Anexo}
 \renewcommand*{\appendixtocname}{Anexos}
 \renewcommand*{\appendixpagename}{Anexos}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{siunitx}
+
+    \newcolumntype{d}{S[
+      table-align-text-before=false,
+      table-align-text-after=false,
+      input-symbols={-,\*+()}
+    ]}
+  
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
@@ -336,8 +392,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Título del trabajo},
-  pdfauthor={Nombre Apellido; Nombre Apellido; Nombre Apellido},
+  pdftitle={Satisfacción con la vida y sus determinantes en población adulta en Chile},
+  pdfauthor={Bianca Balmaceda; Joaquiín Nuñez; Amalia Santa Cruz},
   pdflang={es},
   colorlinks=true,
   linkcolor={Maroon},
@@ -347,7 +403,8 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{Título del trabajo}
+\title{Satisfacción con la vida y sus determinantes en población adulta
+en Chile}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -355,8 +412,8 @@
 }
 \makeatother
 \subtitle{Trabajo final}
-\author{Nombre Apellido \and Nombre Apellido \and Nombre Apellido}
-\date{22 de junio de 2026}
+\author{Bianca Balmaceda \and Joaquiín Nuñez \and Amalia Santa Cruz}
+\date{30 de junio de 2026}
 \begin{document}
 \frontmatter
 \maketitle
@@ -460,55 +517,604 @@
 \mainmatter
 \bookmarksetup{startatroot}
 
-\chapter*{Abstract}\label{abstract}
-\addcontentsline{toc}{chapter}{Abstract}
-
-\markboth{Abstract}{Abstract}
+\chapter{Satisfacción con la vida y sus determinantes en población
+adulta en
+Chile}\label{satisfacciuxf3n-con-la-vida-y-sus-determinantes-en-poblaciuxf3n-adulta-en-chile}
 
 \small\textbf{Palabras clave:} Ciencia Social Abierta \normalsize
 
 \bookmarksetup{startatroot}
 
+\chapter*{Abstract}\label{abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+\markboth{Abstract}{Abstract}
+
+Esta investigación examina los factores que explican el nivel de
+satisfacción con la vida en población adulta en Chile, con énfasis en
+las diferencias según género. A partir de datos de la Encuesta de
+Bienestar Social 2023 (\citeproc{ref-ministerio2023}{Ministerio de
+Desarrollo Social y Familia, 2023}) y una muestra de 4.000 casos, se
+estimaron modelos de regresión lineal múltiple para evaluar el efecto de
+la salud mental, la salud física, el tiempo libre, la seguridad y el
+apoyo en el trabajo doméstico sobre la satisfacción con la vida. Los
+resultados muestran que la salud mental y la salud física son los
+predictores más robustos en ambos géneros, mientras que el tiempo libre
+resulta significativo principalmente en hombres. La seguridad y el apoyo
+en el trabajo doméstico no mostraron efectos consistentes. Estos
+hallazgos sugieren que los modelos clásicos de bienestar subjetivo deben
+incorporar una perspectiva de género para capturar de mejor manera las
+desigualdades estructurales que configuran la experiencia del bienestar.
+
+\bookmarksetup{startatroot}
+
 \chapter{Introducción}\label{introducciuxf3n}
 
-Motivación, preguntas de investigación, Objetivo general y específicos,
-contribución esperada, estructura del documento.
+La presente investigación busca responder a la siguiente pregunta de
+investigación: ¿Qué factores explican el nivel de satisfacción con la
+vida de adultos en Chile, y qué diferencias existen según género? Para
+ello se explorará el efecto de las variables salud mental, salud física,
+tiempo libre, seguridad y apoyo en el trabajo doméstico con la
+satisfacción con la vida de las personas, analizando si existen
+diferencias de resultados entre hombres y mujeres. Para hacer este
+análisis se utilizaron los datos de la Encuesta de Bienestar Social 2023
+(\citeproc{ref-ministerio2023}{Ministerio de Desarrollo Social y
+Familia, 2023}), seleccionando una muestra aleatoria de 4.000 casos.
+
+La satisfacción con la vida es una dimensión del bienestar subjetivo
+(\citeproc{ref-diener1994}{Diener, 1994}) que aporta en la comprensión
+de la percepción que tienen las personas sobre sus condiciones
+contextuales y psicosociales, siendo considerada una evaluación
+cognitiva de la calidad de las experiencias
+(\citeproc{ref-arita2005}{{Arita et~al.}, 2005}). Siguiendo a Veenhoven
+(\citeproc{ref-veenhoven2000}{Veenhoven, 2000},
+\citeproc{ref-veenhoven2011}{2011}), los principales factores que la
+explican incluyen la salud física y mental, las relaciones personales,
+la libertad personal, la seguridad económica y la calidad de las
+instituciones. Este estudio propone además una lectura crítica de estos
+modelos, entendiendo la satisfacción con la vida como una categoría
+atravesada por estructuras de poder, particularmente el género.
+
+Los resultados obtenidos mediante regresión lineal múltiple muestran que
+la salud mental es el predictor más fuerte en ambos géneros, seguida por
+la salud física. El tiempo libre resultó significativo principalmente en
+hombres, mientras que la seguridad y el apoyo en el trabajo doméstico no
+presentaron efectos robustos. Estos hallazgos sugieren que los modelos
+clásicos de bienestar subjetivo requieren incorporar perspectivas de
+género e interseccionales para producir conocimiento más situado y
+socialmente relevante.
 
 \bookmarksetup{startatroot}
 
 \chapter{Antecedentes}\label{antecedentes}
 
-Respaldo teórico y empírico de la investigación
+La satisfacción con la vida es una dimensión del concepto del bienestar
+subjetivo (\citeproc{ref-diener1994}{Diener, 1994}), que aporta en la
+comprensión de la percepción que tienen las personas sobre sus
+condiciones contextuales y psicosociales. Esta es considerada como una
+evaluación cognitiva de la calidad de las experiencias
+(\citeproc{ref-arita2005}{{Arita et~al.}, 2005}), por lo que se
+considera un indicador de bienestar subjetivo, siendo de los
+instrumentos más utilizados para medirlo
+(\citeproc{ref-schnettler2014}{Schnettler et~al., 2014}). Además, según
+Ruut Veenhoven, sociólogo neerlandés, la satisfacción con la vida es un
+indicador importante de progreso social.
+
+Los principales factores que explican la satisfacción con la vida,
+entendida por Veenhoven (\citeproc{ref-veenhoven2000}{Veenhoven, 2000})
+como sinónimo de felicidad, incluyen la salud física y mental, la
+existencia de relaciones personales estables y satisfactorias, la
+libertad personal y los derechos civiles, la seguridad económica y la
+calidad del gobierno y de las instituciones
+(\citeproc{ref-veenhoven2011}{Veenhoven, 2011}). En base a estos
+planteamientos, se seleccionaron como variables predictoras la salud
+física y mental, el tiempo libre, la seguridad y el apoyo en el trabajo
+doméstico.
+
+La inclusión de la perspectiva de género responde a evidencia empírica
+que muestra diferencias persistentes entre hombres y mujeres en
+dimensiones clave del bienestar. El ``Termómetro de la Salud Mental de
+Chile'' (\citeproc{ref-riquelme2024}{Riquelme, 2024}) muestra que las
+mujeres presentan síntomas moderados o graves de problemas de salud
+mental en mayor proporción. Los datos de la CASEN (2022) indican que las
+mujeres dedican en promedio 5,9 horas diarias al trabajo no remunerado,
+frente a 2,8 horas en hombres, lo que limita su acceso al ocio y
+autocuidado. Asimismo, Moreno et~al. (\citeproc{ref-moreno2024}{2024})
+encontraron una brecha de género persistente en la esperanza de vida
+libre de síntomas depresivos en Chile.
+
+Estos antecedentes motivan una lectura crítica de los modelos clásicos
+de bienestar subjetivo. Las escalas tradicionales
+(\citeproc{ref-diener1994}{Diener, 1994}) no capturan dimensiones
+críticas para las mujeres, como el tiempo en tareas de cuidado o trabajo
+doméstico (\citeproc{ref-perezorozco2014}{Pérez Orozco, 2014}). Por
+ello, este estudio entiende la satisfacción con la vida como una
+construcción social atravesada por estructuras de poder, particularmente
+las relaciones de género, proponiendo una lectura crítica y situada de
+su medición tradicional.
 
 \bookmarksetup{startatroot}
 
 \chapter{Hipótesis}\label{hipuxf3tesis}
 
-Hipótesis de investigación. Deben ser pre-registradas.
+A partir del marco teórico expuesto, se plantean las siguientes
+hipótesis de investigación, pre-registradas antes de realizar el
+análisis principal mediante OSF
+\href{https://osf.io/x4zna/overview}{(DOI)}
+
+\textbf{H1.} A mayor nivel de salud mental, mayor es la satisfacción con
+la vida (b1 \textgreater{} 0).
+
+\textbf{H2.} A mayor nivel de salud física, mayor es la satisfacción con
+la vida (b2 \textgreater{} 0).
+
+\textbf{H3.} A mayor disponibilidad de tiempo libre, mayor es la
+satisfacción con la vida (b3 \textgreater{} 0).
+
+\textbf{H4.} A mayor percepción de inseguridad, menor es la satisfacción
+con la vida (b4 \textless{} 0).
+
+\textbf{H5.} A mayor apoyo recibido en el trabajo doméstico, menor es la
+satisfacción con la vida (b5 \textless{} 0).
+
+Estas hipótesis se expresan formalmente en la siguiente ecuación de
+regresión lineal múltiple:
+
+\[
+\text{satisfacción con la vida} = b_1 \cdot \text{salud mental} + b_2 \cdot \text{salud física} + b_3 \cdot \text{tiempo libre} + b_4 \cdot \text{seguridad} + b_5 \cdot \text{apoyo en el trabajo doméstico} + e
+\]
+
+Adicionalmente, se busca explorar si los efectos de estas variables
+difieren entre hombres y mujeres, en línea con el enfoque de género
+adoptado en este estudio.
 
 \bookmarksetup{startatroot}
 
 \chapter{Métodos}\label{muxe9todos}
 
-Datos y protocolo de investigación
+\section{Población y muestra}\label{poblaciuxf3n-y-muestra}
+
+La base de datos utilizada para la investigación es la Encuesta de
+Bienestar Social 2023 (\citeproc{ref-ministerio2023}{Ministerio de
+Desarrollo Social y Familia, 2023}), desarrollada por el Ministerio de
+Desarrollo Social y Familia y el Instituto Nacional de Estadística de
+Chile. El instrumento fue implementado por primera vez en 2021 con el
+objetivo de elaborar un diagnóstico completo sobre el bienestar de la
+población chilena que complemente la información recogida por la
+Encuesta Casen. Fue diseñado por la Subsecretaría de Evaluación del
+Ministerio desde el año 2019. Cuenta con un modelo de 11 dimensiones del
+bienestar: bienestar subjetivo, educación, trabajo en la ocupación, uso
+del tiempo, ingresos, salud, vivienda, calidad del medio ambiente,
+seguridad, relaciones sociales, confianza y participación, y orientación
+sexual.
+
+La población de estudio de la encuesta es una submuestra de las personas
+entrevistadas en la Encuesta Casen. Corresponde a personas de 18 años o
+más, cumplidos a la fecha de realización de la Encuesta Casen 2022, que
+vivan en el territorio nacional.
+
+El tamaño de la muestra es de 12.369 personas, con un error absoluto
+nacional esperado de 1\% y un error relativo de 8\%. El marco muestral
+está basado en el Censo de Población y Vivienda de 2017, actualizado al
+año 2020, y está constituido por unidades primarias de muestreo (UPM)
+correspondientes a áreas geográficas homogéneas en términos del número
+de viviendas particulares.
+
+Para esta investigación se filtró la base de datos y se creó una
+submuestra aleatoria de 4.000 personas, eliminando los casos perdidos
+mediante eliminación por lista (listwise deletion). Luego de este
+procedimiento, la submuestra quedó constituida por 3.980 casos.
+Adicionalmente, se realizó una diferenciación entre grupos de hombres y
+mujeres, con el fin de comparar los efectos de las variables
+explicativas entre géneros.
+
+\section{Variables}\label{variables}
+
+\textbf{Escala sumativa de satisfacción con la vida (dependiente):}
+Construida a partir de cuatro variables categóricas: satisfacción actual
+con la vida, satisfacción con el tiempo libre disponible, satisfacción
+con las relaciones personales, y felicidad percibida el día anterior.
+Cada ítem se mide en una escala de 1 a 5, por lo que la escala total
+puede tomar valores entre 4 y 20, donde puntajes más altos indican mayor
+satisfacción con la vida. La consistencia interna de la escala, medida a
+través del Alpha de Cronbach, fue de 0.62, lo que indica una
+confiabilidad moderadamente aceptable para investigación social (α ≥
+0.60).
+
+\textbf{Escala sumativa de salud mental (independiente):} Construida a
+partir de cuatro variables categóricas relativas a la frecuencia de
+sentirse solo/a, tranquilo/a, enojado/a y triste. Las variables fueron
+recodificadas para que valores más altos indiquen mejor salud mental. La
+escala toma valores entre 4 y 20. El Alpha de Cronbach obtenido fue de
+0.66, indicando una confiabilidad aceptable.
+
+\textbf{Salud física (independiente):} Variable categórica que mide la
+percepción del estado de salud actual, en una escala de 1 (muy malo) a 5
+(muy bueno).
+
+\textbf{Tiempo libre (independiente):} Variable dicotómica que indica si
+la persona realizó actividades de tiempo libre el día anterior (1 = sí,
+0 = no).
+
+\textbf{Seguridad (independiente):} Variable ordinal que mide la
+cantidad de veces que la persona ha sido víctima de un delito en los
+últimos 12 meses, con categorías de 1 (nunca) a 3 (más de una vez).
+
+\textbf{Apoyo en el trabajo doméstico, ATD (independiente):} Variable
+categórica ordinal que indica si el hogar recibió apoyo, pagado o no,
+para realizar tareas domésticas o de cuidado de personas.
+
+\section{Estrategia de análisis}\label{estrategia-de-anuxe1lisis}
+
+El análisis se centra en conocer el efecto de las variables salud
+mental, salud física, tiempo libre, seguridad y apoyo en el trabajo
+doméstico sobre la satisfacción con la vida, mediante un análisis de
+regresión lineal múltiple.
+
+En primer lugar, se realiza un análisis univariado, con estadísticos
+descriptivos (media, desviación estándar, asimetría y kurtosis) para
+cada variable dependiente e independiente.
+
+En segundo lugar, se realiza un análisis bivariado entre la variable
+dependiente y cada una de las variables independientes, utilizando
+distintos estadísticos de asociación según la naturaleza de cada
+variable: correlaciones de Pearson para variables continuas y ordinales,
+y pruebas t de Student para variables categóricas.
+
+En tercer lugar, se realiza un análisis multivariado mediante regresión
+lineal múltiple, incorporando dos modelos parciales. El primero
+considera las variables ``Salud Mental'' y ``Salud Física'', y el
+segundo las variables ``Tiempo Libre'' y ``Apoyo en el Trabajo
+Doméstico''. Posteriormente, se estiman tres modelos de regresión lineal
+múltiple con todas las variables seleccionadas: uno con la muestra
+completa, y dos adicionales filtrados según género (hombres y mujeres),
+con el fin de comparar los efectos de las variables explicativas entre
+ambos grupos.
 
 \bookmarksetup{startatroot}
 
 \chapter{Resultados}\label{resultados}
 
-Interpreta resultados, limitaciones y aportes.
+\section{Análisis descriptivo y
+bivariado}\label{anuxe1lisis-descriptivo-y-bivariado}
+
+La variable dependiente, escala sumativa de satisfacción con la vida,
+que suma 4 ítems con un rango total de 4 a 20, muestra un promedio de
+nivel medio alto de satisfacción con la vida, con poca dispersión de
+respuestas (media = 15.25, SD = 2.58). La asimetría de la variable es
+leve y negativa (Sk = -0.58), lo que indica que la mayoría de las
+personas se concentran en niveles altos de satisfacción con la vida.
+
+En cuanto a las variables explicativas, la escala sumativa de salud
+mental, que también va de 4 a 20, presenta un alto promedio (media =
+16.5, SD = 2.98), con una asimetría negativa y medianamente alta (Sk =
+-1.04). El promedio de la variable salud física, que va de 1 a 5,
+muestra una buena salud física percibida, con baja dispersión (media =
+3.47, SD = 0.86) y asimetría negativa moderada (Sk = -0.44). La variable
+de apoyo en el trabajo doméstico (ATD), que va de 1 a 4, tiene un
+promedio cercano a 4, la categoría de ``no recibió apoyo'' (media =
+3.72, SD = 0.84), con una asimetría fuertemente negativa (Sk = -2.76).
+La variable dicotómica de tiempo libre indica que el 95\% de los
+individuos realizó actividades de tiempo libre (media = 0.96, SD =
+0.21). Por último, la variable de seguridad, que va de 1 a 3, tiene un
+promedio cercano al valor mínimo (media = 1.19, SD = 0.49), con
+asimetría positiva y fuerte inclinación hacia la izquierda (Sk = 2.62).
+
+Respecto al análisis bivariado, la salud mental presenta la mayor
+asociación con la satisfacción con la vida, una correlación fuerte,
+positiva y estadísticamente significativa (r = 0.591; p \textless{}
+.001). La salud física muestra diferencias estadísticamente
+significativas (Chi² = 457.1; p \textless{} .001) según el test de
+Kruskal-Wallis. El tiempo libre también se asocia significativamente con
+la satisfacción con la vida: quienes disponen de tiempo libre presentan
+niveles promedio más altos (15.29) que quienes no lo tienen (14.32),
+diferencia estadísticamente significativa (t = -4.901; p \textless{}
+.001). La seguridad muestra una correlación negativa, débil pero
+significativa (rho = -0.102; p \textless{} .001). Por último, el apoyo
+en el trabajo doméstico no presenta una relación significativa con la
+satisfacción con la vida (rho = 0.003; p = 0.846).
+
+\section{Análisis del modelo}\label{anuxe1lisis-del-modelo}
+
+\subsection{Modelos parciales}\label{modelos-parciales}
+
+Se estimaron dos modelos parciales de regresión lineal múltiple. El
+primero, con las variables ``Salud Mental'' y ``Salud Física'', muestra
+que ambas tienen una significancia estadística alta (p \textless{} 0.001
+en ambos casos) y un efecto positivo sobre la satisfacción con la vida,
+con una intensidad fuerte para salud mental (Std. b = .532) y moderada
+para salud física (Std. b = .180). El R² ajustado del modelo (.378)
+indica que estas dos variables explican el 37.8\% de la varianza en la
+satisfacción con la vida.
+
+El segundo modelo parcial, con las variables ``Tiempo Libre'' y ``Apoyo
+en el Trabajo Doméstico'', indica que el tiempo libre es
+estadísticamente significativo (p \textless{} .001), mientras que el
+apoyo en el trabajo doméstico no lo es (p = .677). El R² ajustado de
+este modelo es considerablemente más bajo (.006), explicando solo el
+0.6\% de la varianza.
+
+\subsection{Modelo completo}\label{modelo-completo}
+
+En el modelo completo, que incorpora las cinco variables explicativas,
+la salud mental (b1 = .454, p \textless{} .001) y la salud física (b1 =
+.541, p \textless{} .001) mantienen efectos positivos y robustos, siendo
+la salud física el predictor más fuerte según los coeficientes
+estandarizados (Std. b = .541), seguida de la salud mental (Std. b =
+.454). El tiempo libre también resulta significativo (b1 = .441, p
+\textless{} .005), confirmando la hipótesis inicial. El apoyo en el
+trabajo doméstico no alcanza significancia estadística (p = .262),
+aunque su coeficiente es negativo, en línea con la dirección
+hipotetizada. La variable de seguridad tampoco alcanza significancia
+estadística en el modelo completo (p \textgreater{} .005).
+
+\subsection{Modelos por género}\label{modelos-por-guxe9nero}
+
+Se estimaron modelos separados para hombres y mujeres con el fin de
+evaluar si los factores que inciden en la satisfacción con la vida
+operan de manera similar en ambos grupos. En ambos casos, la salud
+mental es el predictor más fuerte (hombres: Std. b = 0.542, p
+\textless{} 0.001; mujeres: Std. b = 0.506, p \textless{} 0.001).
+
+En el modelo para hombres (R² = 0.393, p \textless{} .001), además de la
+salud mental, el tiempo libre (Std. b = 0.049, p \textless{} .001) y la
+salud física (Std. b = 0.169, p \textless{} 0.001) muestran efectos
+positivos y significativos. La seguridad resulta significativa pero de
+baja magnitud (Std. b = -0.033, p = 0.042). El apoyo en tareas
+domésticas no muestra relación significativa (p = 0.872).
+
+En el modelo para mujeres (R² = 0.368, p \textless{} .001), la salud
+física es el segundo predictor más fuerte (Std. b = 0.205, p \textless{}
+.001). La seguridad no alcanza significación estadística (Std. b =
+-0.027, p = 0.178), y tanto el tiempo libre (Std. b = 0.013, p = 0.525)
+como el apoyo en tareas domésticas (Std. b = -0.031, p = 0.119) carecen
+de efectos significativos.
+
+Estos resultados muestran que, si bien la salud física y mental son
+factores clave en ambos géneros, existen matices relevantes: en los
+hombres el tiempo libre emerge como un factor relevante, mientras que en
+las mujeres destaca con mayor fuerza el rol de la salud física. La
+seguridad muestra efectos significativos solo en el modelo masculino, y
+el apoyo en las tareas domésticas no resulta significativo en ningún
+grupo.
+
+\subsection{Tabla comparativa de modelos de
+regresión}\label{tabla-comparativa-de-modelos-de-regresiuxf3n}
+
+\begin{table}
+
+\caption{\label{tbl-regresiones}}
+
+\centering{
+
+\centering
+\caption{\label{tab:tbl-regresiones}Tabla 1. Modelos de Regresión Lineal Múltiple para Satisfacción con la Vida}
+\centering
+\begin{tabular}[t]{lccccc}
+\toprule
+  & M1 & M2 & M3 & M4 & M5\\
+\midrule
+(Intercept) & \num{5.886}*** & \num{14.248}*** & \num{5.886}*** & \num{5.570}*** & \num{6.166}***\\
+ & (\num{0.189}) & (\num{0.261}) & (\num{0.285}) & (\num{0.357}) & (\num{0.484})\\
+salud\_mental & \num{0.452}*** &  & \num{0.446}*** & \num{0.451}*** & \num{0.446}***\\
+ & (\num{0.011}) &  & (\num{0.011}) & (\num{0.014}) & (\num{0.019})\\
+salud\_física & \num{0.537}*** &  & \num{0.534}*** & \num{0.528}*** & \num{0.572}***\\
+ & (\num{0.039}) &  & (\num{0.039}) & (\num{0.050}) & (\num{0.062})\\
+tiempo\_libre &  & \num{1.015}*** & \num{0.499}*** & \num{0.682}*** & \num{0.186}\\
+ &  & (\num{0.192}) & (\num{0.151}) & (\num{0.189}) & (\num{0.252})\\
+ATD &  & \num{-0.012} & \num{-0.036} & \num{-0.008} & \num{-0.076}\\
+ &  & (\num{0.049}) & (\num{0.038}) & (\num{0.050}) & (\num{0.059})\\
+seguridad &  &  & \num{-0.194}** & \num{-0.131} & \num{-0.259}**\\
+ &  &  & (\num{0.064}) & (\num{0.086}) & (\num{0.096})\\
+\midrule
+Num.Obs. & \num{4000} & \num{4000} & \num{4000} & \num{2349} & \num{1651}\\
+R2 & \num{0.388} & \num{0.007} & \num{0.391} & \num{0.416} & \num{0.355}\\
+R2 Adj. & \num{0.388} & \num{0.006} & \num{0.390} & \num{0.414} & \num{0.353}\\
+AIC & \num{17083.2} & \num{19018.7} & \num{17068.4} & \num{10036.6} & \num{7030.5}\\
+BIC & \num{17108.4} & \num{19043.8} & \num{17112.5} & \num{10077.0} & \num{7068.4}\\
+Log.Lik. & \num{-8537.623} & \num{-9505.333} & \num{-8527.201} & \num{-5011.323} & \num{-3508.259}\\
+RMSE & \num{2.05} & \num{2.60} & \num{2.04} & \num{2.04} & \num{2.03}\\
+\bottomrule
+\multicolumn{6}{l}{\rule{0pt}{1em}+ p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
+\end{tabular}
+
+}
+
+\end{table}%
 
 \bookmarksetup{startatroot}
 
 \chapter{Conclusiones}\label{conclusiones}
 
-Síntesis y proyecciones futuras.
+La presente investigación buscó responder a la pregunta sobre qué
+factores explican el nivel de satisfacción con la vida de adultos en
+Chile, y si existen diferencias según género. Para ello se investigó el
+efecto de las variables salud mental, salud física, tiempo libre,
+seguridad y apoyo en el trabajo doméstico (ATD). Los resultados
+obtenidos mediante el análisis de regresión lineal múltiple, utilizando
+los datos de la Encuesta de Bienestar Social 2023
+(\citeproc{ref-ministerio2023}{Ministerio de Desarrollo Social y
+Familia, 2023}), permiten corroborar varias de las hipótesis iniciales y
+responder la pregunta de investigación en buena medida.
+
+Los resultados descriptivos mostraron que el grupo de estudio se
+encuentra en un nivel medio alto de satisfacción con la vida,
+concentrado en los niveles más altos. La salud física y mental también
+resultaron mayoritariamente positivas. En el análisis bivariado, la
+salud mental presentó la mayor correlación con la satisfacción con la
+vida, lo que coincide con los resultados del modelo de regresión. Las
+variables de salud física y tiempo libre también mostraron correlaciones
+positivas y significativas, mientras que la seguridad presentó una
+correlación débil aunque significativa, y el ATD no mostró una
+correlación estadísticamente significativa.
+
+El modelo de regresión lineal múltiple permitió confirmar la mayoría de
+las hipótesis iniciales. La salud mental fue la variable que explica con
+mayor fuerza la satisfacción con la vida, seguida por la salud física y
+el tiempo libre, todas con efectos positivos y significativos,
+confirmando las hipótesis H1, H2 y H3. La variable de seguridad mostró
+un efecto negativo y significativo, confirmando H4. En el caso del apoyo
+en el trabajo doméstico (H5), si bien no alcanzó relevancia estadística
+en el modelo completo, su coeficiente fue negativo, acercándose a la
+dirección hipotetizada. Estas concordancias corroboran en gran medida
+las propuestas de Veenhoven (\citeproc{ref-veenhoven2000}{Veenhoven,
+2000}, \citeproc{ref-veenhoven2011}{2011}) sobre los principales
+factores que explican la satisfacción con la vida.
+
+En cuanto a las diferencias por género, en ambos modelos la salud mental
+y la salud física fueron las variables explicativas más fuertes, en
+concordancia con el modelo de la población total. La principal
+diferencia fue que, en hombres, el tiempo libre emergió como tercera
+variable explicativa relevante con efecto positivo, mientras que en
+mujeres las únicas variables con efecto significativo fueron salud
+física y mental. Para ambos grupos, el apoyo en el trabajo doméstico no
+resultó significativo.
+
+Estos resultados permiten reflexionar sobre los límites y alcances del
+marco teórico utilizado. Las teorías clásicas del bienestar subjetivo
+(\citeproc{ref-diener1994}{Diener, 1994};
+\citeproc{ref-veenhoven2000}{Veenhoven, 2000},
+\citeproc{ref-veenhoven2011}{2011}) plantean que factores como la salud
+física y mental, la seguridad, la libertad personal y las condiciones
+materiales explican las diferencias en satisfacción con la vida. Sin
+embargo, los resultados de este estudio muestran que estos factores no
+afectan de igual manera a todas las personas, y que el género opera como
+un eje estructurante que condiciona la forma en que se experimenta y
+valora el bienestar. Por ejemplo, en los hombres el tiempo libre aparece
+como un factor relevante, mientras que en las mujeres este pierde
+fuerza, adquiriendo mayor importancia la salud física. Esto podría estar
+vinculado a la carga desigual de cuidados y trabajo doméstico no
+remunerado (\citeproc{ref-fraser1994}{Fraser, 1994};
+\citeproc{ref-kirkwood1982}{Kirkwood, 1982}), que enfrenta a las mujeres
+a mayores limitaciones estructurales.
+
+Que la variable de apoyo en el trabajo doméstico no sea significativa en
+ningún modelo sugiere que su impacto podría ser indirecto o estar
+mediado por otras dimensiones no consideradas, lo que invita a repensar
+la operacionalización de este tipo de variables en futuras
+investigaciones.
+
+En consecuencia, se propone que el bienestar subjetivo no se explica
+solamente por factores individuales o generales, sino que está
+atravesado por estructuras de poder, especialmente las relaciones de
+género. Esto refuerza la idea de la satisfacción con la vida como una
+construcción social, y subraya la necesidad de que investigaciones
+futuras integren enfoques interseccionales para producir conocimiento
+más situado y socialmente relevante.
+
+\section{Limitaciones}\label{limitaciones}
+
+A nivel teórico, este estudio se basa en modelos clásicos de bienestar
+subjetivo que podrían no considerar otras variables no tradicionales
+relevantes para la satisfacción con la vida, por lo que se propone
+incorporar marcos teóricos interseccionales en futuras investigaciones.
+Asimismo, las variables explicativas escogidas no consideran diferencias
+culturales o contextuales entre distintos grupos sociales.
+
+A nivel metodológico, los datos utilizados están sujetos a las
+percepciones individuales de las personas, lo cual podría complementarse
+con indicadores objetivos o metodologías mixtas que combinen datos
+cualitativos y cuantitativos. Además, la eliminación de casos perdidos
+por lista puede sesgar la muestra, lo que podría abordarse mediante
+técnicas que preserven una mayor cantidad de datos.
+
+\section{Proyecciones futuras}\label{proyecciones-futuras}
+
+A partir de los hallazgos de este estudio, se abren varias líneas de
+trabajo futuro. En primer lugar, sería relevante incorporar marcos
+teóricos interseccionales que permitan analizar el bienestar subjetivo
+considerando, además del género, otras dimensiones estructurantes como
+la clase social, la edad o el territorio, lo que enriquecería la
+comprensión de las desigualdades en satisfacción con la vida.
+
+En segundo lugar, futuras investigaciones podrían profundizar en por qué
+el apoyo en el trabajo doméstico no mostró un efecto significativo en
+este modelo, explorando si su impacto se expresa de forma indirecta a
+través de otras variables, como el tiempo libre o la salud mental,
+mediante modelos de mediación o moderación.
+
+En tercer lugar, sería valioso complementar este enfoque cuantitativo
+con metodologías cualitativas que permitan capturar la experiencia
+subjetiva de hombres y mujeres respecto al trabajo doméstico, el tiempo
+libre y la seguridad, aportando matices que un modelo de regresión no
+logra reflejar.
+
+Finalmente, dado que este análisis se basa en datos transversales de
+2023, sería pertinente dar seguimiento a estos indicadores en futuras
+versiones de la Encuesta de Bienestar Social
+(\citeproc{ref-ministerio2023}{Ministerio de Desarrollo Social y
+Familia, 2023}), para observar si las diferencias de género
+identificadas se mantienen, se profundizan o disminuyen en el tiempo.
 
 \bookmarksetup{startatroot}
 
 \chapter{Referencias}\label{referencias}
 
-\phantomsection\label{refs}
+\protect\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-arita2005}
+{Arita, B. Y., Romano, S., García, N., \& del Refugio Félix, M.} (2005).
+Indicadores objetivos y subjetivos de la calidad de vida.
+\emph{Enseñanza e Investigación en Psicología}, \emph{10}(1), 93-102.
+\url{https://www.redalyc.org/pdf/292/29210106.pdf}
+
+\bibitem[\citeproctext]{ref-diener1994}
+Diener, E. (1994). El bienestar subjetivo. \emph{Intervención
+Psicosocial}, \emph{3}(8), 67.
+
+\bibitem[\citeproctext]{ref-fraser1994}
+Fraser, N. (1994). After the Family Wage: Gender Equity and the Welfare
+State. \emph{Political Theory}, \emph{22}(4), 591-618.
+\url{https://doi.org/10.1177/0090591794022004003}
+
+\bibitem[\citeproctext]{ref-kirkwood1982}
+Kirkwood, J. (1982). \emph{Feminismo y participación política en
+{Chile}} (Documento de trabajo No. 159). FLACSO.
+\url{http://flacsochile.org/biblioteca/pub/memoria/1982/001076.pdf}
+
+\bibitem[\citeproctext]{ref-ministerio2023}
+Ministerio de Desarrollo Social y Familia. (2023). \emph{Encuesta de
+Bienestar Social 2023}. Observatorio Social, Ministerio de Desarrollo
+Social y Familia.
+\url{https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-bienestar-social-2023}
+
+\bibitem[\citeproctext]{ref-moreno2024}
+Moreno, X., Monsalves, M. J., Rueda, S., Dagnino, P., \& Borghero, F.
+(2024). Gender differences in life expectancy free of depressive
+symptoms in {Chile} between 2003 and 2016. \emph{Cambridge Prisms:
+Global Mental Health}, \emph{11}, e16.
+\url{https://www.cambridge.org/core/journals/global-mental-health/article/gender-differences-in-life-expectancy-free-of-depressive-symptoms-in-chile-between-2003-and-2016/86C7AE17EF09348668D17EA0A07D2D49}
+
+\bibitem[\citeproctext]{ref-perezorozco2014}
+Pérez Orozco, A. (2014). Del trabajo doméstico al trabajo de cuidados.
+En A. Pérez Orozco (Ed.), \emph{Con voz propia: La economía feminista
+como apuesta teórica y política} (pp. 49-73). La Oveja Roja.
+\url{https://vientosur.info/wp-content/uploads/spip/pdf/con_voz_propia.pdf}
+
+\bibitem[\citeproctext]{ref-riquelme2024}
+Riquelme, M. (2024). \emph{Termómetro de salud mental: Uno de cada
+cuatro chilenos presenta síntomas de ansiedad}. Pontificia Universidad
+Católica de Chile.
+\url{https://www.uc.cl/noticias/termometro-de-salud-mental-uno-de-cada-cuatro-chilenos-presenta-sintomas-de-ansiedad/}
+
+\bibitem[\citeproctext]{ref-schnettler2014}
+Schnettler, B., Miranda, H., Sepúlveda, J., Orellana, L., Denegri, M.,
+Mora, M., \& Lobos, G. (2014). Variables que influyen en la satisfacción
+con la vida de personas de distinto nivel socioeconómico en el sur de
+{Chile}. \emph{Suma Psicológica}, \emph{21}(1), 54-62.
+\url{https://www.sciencedirect.com/science/article/pii/S0121438114700074}
+
+\bibitem[\citeproctext]{ref-veenhoven2000}
+Veenhoven, R. (2000). Freedom and Happiness: {A} Comparative Study in
+Forty-Four Nations in the Early 1990s. En E. Diener \& E. M. Suh (Eds.),
+\emph{Culture and Subjective Wellbeing} (pp. 257-288). MIT Press.
+\url{https://personal.eur.nl/veenhoven/Pub2000s/2000a-full.pdf}
+
+\bibitem[\citeproctext]{ref-veenhoven2011}
+Veenhoven, R. (2011). \emph{Life Satisfaction in Nations}.
+\url{https://personal.eur.nl/veenhoven/Pub2010s/2011s-full.pdf}
+
+\end{CSLReferences}
 
 \cleardoublepage
 \phantomsection
