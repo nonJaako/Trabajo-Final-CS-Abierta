@@ -106,3 +106,6 @@ modelM <- lm(
   data = mujer
 )
 modelM_std <- lm.beta(modelM)
+
+# Guardar los modelos en un archivo liviano de R
+save(model1, model2, modelPT, modelH, modelM, file = "input/modelos_regresion.RData")

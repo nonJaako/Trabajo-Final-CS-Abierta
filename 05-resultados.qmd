@@ -47,9 +47,13 @@ pacman::p_load(sjPlot, lm.beta)
 # Cargar directamente los modelos ya estimados
 load("input/modelos_regresion.RData")
 
-# Generar la tabla
+# Generar la tabla optimizada para que quepa en el ancho de la página
 sjPlot::tab_model(
   model1, model2, modelPT, modelH, modelM,
   dv.labels = c("M1 (Parcial)", "M2 (Parcial)", "M3 (Completo)", "M4 (Hombres)", "M5 (Mujeres)"),
-  title = "Tabla 1. Modelos de Regresión Lineal Múltiple para Satisfacción con la Vida"
+  title = "Tabla 1. Modelos de Regresión Lineal Múltiple para Satisfacción con la Vida",
+  show.ci = FALSE,        # Quitamos los Intervalos de Confianza para achicar el ancho
+  show.se = TRUE,         # Dejamos los Errores Estándar (formato tradicional APA)
+  collapse.se = TRUE,     # Colapsa el error estándar abajo del coeficiente para ahorrar columnas
+  CSS = list(css.table = "font-size: 85%; width: 100%; max-width: 100%;") # Ajuste de tamaño
 )
