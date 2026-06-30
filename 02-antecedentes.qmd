@@ -3,3 +3,14 @@ title: "Antecedentes"
 ---
 
 Respaldo teórico y empírico de la investigación
+# Antecedentes
+
+La satisfacción con la vida es una dimensión del concepto del bienestar subjetivo (Diener, 1994), que aporta en la comprensión de la percepción que tienen las personas sobre sus condiciones contextuales y psicosociales. Esta es considerada como una evaluación cognitiva de la calidad de las experiencias (Arita, 2005), por lo que se considera un indicador de bienestar subjetivo, siendo de los instrumentos más utilizados para medirlo (Schnettler, 2014). Además, según Ruut Veenhoven, sociólogo neerlandés, la satisfacción con la vida es un indicador importante de progreso social.
+
+Los principales factores que explican la satisfacción con la vida, entendida por Veenhoven (2000) como sinónimo de felicidad, incluyen la salud física y mental, la existencia de relaciones personales estables y satisfactorias, la libertad personal y los derechos civiles, la seguridad económica y la calidad del gobierno y de las 
+instituciones (Veenhoven, 2011). En base a estos planteamientos, se seleccionaron como variables predictoras la salud física y mental, el tiempo libre, la seguridad y el apoyo en el trabajo doméstico.
+
+La inclusión de la perspectiva de género responde a evidencia empírica que muestra diferencias persistentes entre hombres y mujeres en dimensiones clave del bienestar. El "Termómetro de la Salud Mental de Chile" (Riquelme, 2024) muestra que las mujeres presentan síntomas moderados o graves de problemas de salud mental en mayor proporción. Los datos de la CASEN (2022) indican que las mujeres dedican en promedio 5,9 horas diarias al trabajo no remunerado, frente a 2,8 horas en hombres, lo que limita su acceso al ocio y autocuidado. Asimismo, Moreno et al. (2024) encontraron una brecha de género persistente en la esperanza de vida libre de síntomas depresivos en Chile.
+
+Estos antecedentes motivan una lectura crítica de los modelos clásicos de bienestar subjetivo. Las escalas tradicionales (Diener, 1994) no capturan dimensiones críticas para las mujeres, como el tiempo en tareas de cuidado o trabajo doméstico 
+(Pérez-Orozco, 2014). Por ello, este estudio entiende la satisfacción con la vida como una construcción social atravesada por estructuras de poder, particularmente las relaciones de género, proponiendo una lectura crítica y situada de su medición tradicional.
