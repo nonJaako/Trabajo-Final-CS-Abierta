@@ -3,3 +3,39 @@ title: "Métodos"
 ---
 
 Datos y protocolo de investigación
+
+# Métodos
+
+## Población y muestra
+
+La base de datos utilizada para la investigación es la Encuesta de Bienestar Social 2023 (EBS 2023), desarrollada por el Ministerio de Desarrollo Social y Familia y el Instituto Nacional de Estadística de Chile. El instrumento fue implementado por primera vez en 2021 con el objetivo de elaborar un diagnóstico completo sobre el bienestar de la población chilena que complemente la información recogida por la Encuesta Casen. Fue diseñado por la Subsecretaría de Evaluación del Ministerio desde el año 2019. Cuenta con un modelo de 11 dimensiones del bienestar: bienestar subjetivo, educación, trabajo en la ocupación, uso del tiempo, ingresos, salud, vivienda, calidad del medio ambiente, seguridad, relaciones sociales, confianza y participación, y orientación sexual.
+
+La población de estudio de la encuesta es una submuestra de las personas entrevistadas en la Encuesta Casen. Corresponde a personas de 18 años o más, cumplidos a la fecha de realización de la Encuesta Casen 2022, que vivan en el territorio nacional.
+
+El tamaño de la muestra es de 12.369 personas, con un error absoluto nacional esperado de 1% y un error relativo de 8%. El marco muestral está basado en el Censo de Población y Vivienda de 2017, actualizado al año 2020, y está constituido por unidades primarias de muestreo (UPM) correspondientes a áreas geográficas homogéneas en términos del número de viviendas particulares.
+
+Para esta investigación se filtró la base de datos y se creó una submuestra aleatoria de 4.000 personas, eliminando los casos perdidos mediante eliminación por lista (listwise deletion). Luego de este procedimiento, la submuestra quedó constituida por 3.980 casos. Adicionalmente, se realizó una diferenciación entre grupos de hombres y mujeres, con el fin de comparar los efectos de las variables explicativas entre géneros.
+
+## Variables
+
+**Escala sumativa de satisfacción con la vida (dependiente):** Construida a partir de cuatro variables categóricas: satisfacción actual con la vida, satisfacción con el tiempo libre disponible, satisfacción con las relaciones personales, y felicidad percibida el día anterior. Cada ítem se mide en una escala de 1 a 5, por lo que la escala total puede tomar valores entre 4 y 20, donde puntajes más altos indican mayor satisfacción con la vida. La consistencia interna de la escala, medida a través del Alpha de Cronbach, fue de 0.62, lo que indica una confiabilidad moderadamente aceptable para investigación social (α ≥ 0.60).
+
+**Escala sumativa de salud mental (independiente):** Construida a partir de cuatro variables categóricas relativas a la frecuencia de sentirse solo/a, tranquilo/a, enojado/a y triste. Las variables fueron recodificadas para que valores más altos indiquen mejor salud mental. La escala toma valores entre 4 y 20. El Alpha de Cronbach obtenido fue de 0.66, indicando una confiabilidad aceptable.
+
+**Salud física (independiente):** Variable categórica que mide la percepción del estado de salud actual, en una escala de 1 (muy malo) a 5 (muy bueno).
+
+**Tiempo libre (independiente):** Variable dicotómica que indica si la persona realizó actividades de tiempo libre el día anterior (1 = sí, 0 = no).
+
+**Seguridad (independiente):** Variable ordinal que mide la cantidad de veces que la persona ha sido víctima de un delito en los últimos 12 meses, con categorías de 1 (nunca) a 3 (más de una vez).
+
+**Apoyo en el trabajo doméstico, ATD (independiente):** Variable categórica ordinal que indica si el hogar recibió apoyo, pagado o no, para realizar tareas domésticas o de cuidado de personas.
+
+## Estrategia de análisis
+
+El análisis se centra en conocer el efecto de las variables salud mental, salud física, tiempo libre, seguridad y apoyo en el trabajo doméstico sobre la satisfacción con la vida, mediante un análisis de regresión lineal múltiple.
+
+En primer lugar, se realiza un análisis univariado, con estadísticos descriptivos (media, desviación estándar, asimetría y kurtosis) para cada variable dependiente e independiente.
+
+En segundo lugar, se realiza un análisis bivariado entre la variable dependiente y cada una de las variables independientes, utilizando distintos estadísticos de asociación según la naturaleza de cada variable: correlaciones de Pearson para variables continuas y ordinales, y pruebas t de Student para variables categóricas.
+
+En tercer lugar, se realiza un análisis multivariado mediante regresión lineal múltiple, incorporando dos modelos parciales. El primero considera las variables "Salud Mental" y "Salud Física", y el segundo las variables "Tiempo Libre" y "Apoyo en el Trabajo Doméstico". Posteriormente, se estiman tres modelos de regresión lineal múltiple con todas las variables seleccionadas: uno con la muestra completa, y dos adicionales filtrados según género (hombres y mujeres), con el fin de comparar los efectos de las variables explicativas entre ambos grupos.
