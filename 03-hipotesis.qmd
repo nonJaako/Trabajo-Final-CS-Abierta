@@ -2,7 +2,7 @@
 title: "Hipótesis"
 ---
 
-A partir del marco teórico expuesto, se plantean las siguientes hipótesis de investigación, pre-registradas antes de realizar el análisis principal mediante OSF (PONER DOI):
+A partir del marco teórico expuesto, se plantean las siguientes hipótesis de investigación, pre-registradas antes de realizar el análisis principal mediante OSF (10.17605/OSF.IO/X4ZNA ):
 
 **H1.** A mayor nivel de salud mental, mayor es la satisfacción con la vida (b1 > 0).
 

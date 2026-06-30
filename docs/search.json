@@ -114,7 +114,7 @@
     "href": "references.html",
     "title": "Referencias",
     "section": "",
-    "text": "Bourdieu, P. (2012). La distinción: Criterio y bases sociales del gusto. Taurus.\n\n\nDesmond, M., & Wilmers, N. (2019). The Racialized Geography of Housing. American Journal of Sociology.\n\n\nXie, Y. (2017). bookdown: Authoring Books and Technical Documents with R Markdown. Chapman; Hall/CRC.",
+    "text": "Bourdieu, P. (2012). La distinción: Criterio y bases\nsociales del gusto. Taurus.\n\n\nDesmond, M., & Wilmers, N. (2019). The racialized geography of\nhousing. American Journal of Sociology.\n\n\nXie, Y. (2017). Bookdown: Authoring books and technical documents\nwith r markdown. Chapman; Hall/CRC.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Referencias</span>"
     ]
@@ -146,7 +146,7 @@
     "href": "index.html",
     "title": "Título del trabajo",
     "section": "",
-    "text": "Palabras clave: Ciencia Social Abierta\n\nAbstract",
+    "text": "Palabras clave: Ciencia Social Abierta\n\nAbstract\nEsta investigación examina los factores que explican el nivel de satisfacción con la vida en población adulta en Chile, con énfasis en las diferencias según género. A partir de datos de la Encuesta de Bienestar Social 2023 (EBS 2023) y una muestra de 4.000 casos, se estimaron modelos de regresión lineal múltiple para evaluar el efecto de la salud mental, la salud física, el tiempo libre, la seguridad y el apoyo en el trabajo doméstico sobre la satisfacción con la vida. Los resultados muestran que la salud mental y la salud física son los predictores más robustos en ambos géneros, mientras que el tiempo libre resulta significativo principalmente en hombres. La seguridad y el apoyo en el trabajo doméstico no mostraron efectos consistentes. Estos hallazgos sugieren que los modelos clásicos de bienestar subjetivo deben incorporar una perspectiva de género para capturar de mejor manera las desigualdades estructurales que configuran la experiencia del bienestar.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Satisfacción con la vida y sus determinantes en población adulta en Chile</span>"
     ]
