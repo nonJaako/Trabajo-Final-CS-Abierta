@@ -1,0 +1,110 @@
+```{r}
+#| label: preparacion-datos
+#| echo: false
+#| message: false
+#| warning: false
+
+# 1. Abrir librerías esenciales
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(
+  tidyverse,
+  sjPlot,
+  sjmisc,
+  corrplot,
+  psych,
+  kableExtra,
+  dplyr,
+  haven,
+  polycor,
+  ltm,
+  lm.beta
+)
+
+options(scipen = 999)
+
+# 2. Base de datos
+load("input/Base de datos EBS 2023.RData")
+
+# 3. Selección de casos y variables con quiebres de línea
+Base_final <- EBS_2023_vp %>%
+  dplyr::select(
+    a1,
+    a6,
+    a12,
+    a2_a,
+    a2_b,
+    a2_c,
+    a2_d,
+    rr3,
+    ss1,
+    u15,
+    h1,
+    u12,
+    sg01
+  )
+
+Base_final <- Base_final %>%
+  mutate(across(everything(), ~as.numeric(.)))
+
+# 4. Tratamiento de casos perdidos
+Base_final[Base_final == -88 | Base_final == -99] <- NA
+Base_final <- na.omit(Base_final)
+
+# 5. Selección de la muestra reproducible
+set.seed(123)
+Base_final <- sample_n(Base_final, 4000)
+
+# 6. Recodificar e invertir variables Likert
+vars_likert <- c("rr3", "a2_c", "a2_d")
+Base_final <- Base_final %>%
+  mutate(across(
+    .cols = all_of(vars_likert),
+    .fns = ~ 6 - as.numeric(as.character(.x)),
+    .names = "{.col}_inv"
+  ))
+
+# Correcciones dicotómicas
+Base_final$u15 <- ifelse(Base_final$u15 == 2, 0, 1)
+Base_final$sg01 <- ifelse(Base_final$sg01 == 2, 0, 1)
+
+# Selección final y renombre con quiebres
+Base_final <- Base_final %>%
+  dplyr::select(
+    a1,
+    a6,
+    a12,
+    a2_a,
+    a2_b,
+    a2_c_inv,
+    a2_d_inv,
+    rr3_inv,
+    h1,
+    u15,
+    ss1,
+    u12,
+    sg01
+  ) %>%
+  rename(
+    salud_física = ss1,
+    tiempo_libre = u15,
+    seguridad = h1,
+    ATD = u12,
+    sexo = sg01
+  )
+
+# 7. Construcción de escala sumativa satisfacción_vida
+Base_final <- Base_final %>%
+  mutate(satisfaccion_vida = rowSums(
+    across(c(a1, a6, a12, a2_a)),
+    na.rm = FALSE
+  ))
+
+# 8. Construcción escala sumativa salud_mental
+Base_final <- Base_final %>%
+  mutate(salud_mental = rowSums(
+    across(c(rr3_inv, a2_b, a2_c_inv, a2_d_inv)),
+    na.rm = FALSE
+  ))
+
+# 9. Guardar base tratada en la carpeta input
+save(Base_final, file = "input/base_preparada.RData")

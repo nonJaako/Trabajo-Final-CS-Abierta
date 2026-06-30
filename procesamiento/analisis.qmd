@@ -1,0 +1,111 @@
+```{r}
+#| label: analisis-modelos
+#| echo: false
+#| message: false
+#| warning: false
+
+# 1. Cargar librerías necesarias
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(
+  tidyverse,
+  sjPlot,
+  sjmisc,
+  corrplot,
+  psych,
+  kableExtra,
+  dplyr,
+  haven,
+  polycor,
+  ltm,
+  lm.beta
+)
+
+options(scipen = 999)
+
+# 2. Cargar la base de datos que guardamos en la preparación
+load("input/base_preparada.RData")
+
+# --- ESTADÍSTICOS DESCRIPTIVOS ---
+
+psych::describe(Base_final$seguridad)
+psych::describe(Base_final$salud_física)
+psych::describe(Base_final$salud_mental)
+psych::describe(Base_final$ATD)
+psych::describe(Base_final$tiempo_libre)
+psych::describe(Base_final$satisfaccion_vida)
+
+# --- ANÁLISIS BIVARIADO ---
+
+cor.test(
+  Base_final$satisfaccion_vital,
+  Base_final$salud_mental
+)
+
+kruskal.test(
+  satisfaccion_vida ~ as.factor(salud_física),
+  data = Base_final
+) 
+
+t.test(
+  satisfaccion_vida ~ tiempo_libre,
+  data = Base_final,
+  var.equal = TRUE
+) 
+
+cor.test(
+  Base_final$satisfaccion_vida,
+  Base_final$seguridad,
+  method = "spearman"
+)
+
+cor.test(
+  Base_final$satisfaccion_vida,
+  Base_final$ATD,
+  method = "spearman"
+)
+
+# --- CONSTRUCCIÓN DE MODELOS MULTIVARIADOS ---
+
+# Modelo parcial 1 y Estandarizado
+model1 <- lm(
+  satisfaccion_vida ~ salud_mental + salud_física,
+  data = Base_final
+)
+model1_std <- lm.beta(model1)
+
+# Modelo parcial 2 y Estandarizado
+model2 <- lm(
+  satisfaccion_vida ~ tiempo_libre + ATD,
+  data = Base_final
+)
+model2_std <- lm.beta(model2)
+
+# Modelo Población Total y Estandarizado
+modelPT <- lm(
+  satisfaccion_vida ~ tiempo_libre + salud_mental + salud_física + seguridad + ATD,
+  data = Base_final
+)
+modelPT_std <- lm.beta(modelPT)
+
+# --- MODELOS SEGREGADOS POR SEXO ---
+
+# Filtrar submuestras por sexo
+hombre <- Base_final %>% filter(sexo == 0)
+mujer <- Base_final %>% filter(sexo == 1)
+
+# Modelos estimados para Hombres
+modelH <- lm(
+  satisfaccion_vida ~ tiempo_libre + salud_mental + salud_física + seguridad + ATD,
+  data = hombre
+)
+modelH_std <- lm.beta(modelH)
+
+# Modelos estimados para Mujeres
+modelM <- lm(
+  satisfaccion_vida ~ tiempo_libre + salud_mental + salud_física + seguridad + ATD,
+  data = mujer
+)
+modelM_std <- lm.beta(modelM)
+
+# Guardar los modelos en un archivo liviano de R
+save(model1, model2, modelPT, modelH, modelM, file = "input/modelos_regresion.RData")
