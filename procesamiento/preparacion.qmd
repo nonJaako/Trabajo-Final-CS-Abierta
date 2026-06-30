@@ -23,7 +23,7 @@ pacman::p_load(
 options(scipen = 999)
 
 # 2. Base de datos
-load("../input/Base_de_datos_EBS_2023.RData")
+load("../input/Base de datos EBS 2023.RData")
 
 # 3. Selección de casos y variables con quiebres de línea
 Base_final <- EBS_2023_vp %>%
