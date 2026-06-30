@@ -2,32 +2,110 @@
 title: "Conclusiones"
 ---
 
-La presente investigación buscó responder a la pregunta sobre qué factores explican el nivel de satisfacción con la vida de adultos en Chile, y si existen diferencias según género. Para ello se investigó el efecto de las variables salud mental, salud física, tiempo libre, seguridad y apoyo en el trabajo doméstico (ATD). Los resultados obtenidos mediante el análisis de regresión lineal múltiple, utilizando los datos de la Encuesta de Bienestar Social 2023, permiten corroborar varias de las hipótesis iniciales y responder la pregunta de investigación en buena medida.
+La presente investigación buscó responder a la pregunta sobre qué factores 
+explican el nivel de satisfacción con la vida de adultos en Chile, y si 
+existen diferencias según género. Para ello se investigó el efecto de las 
+variables salud mental, salud física, tiempo libre, seguridad y apoyo en el 
+trabajo doméstico (ATD). Los resultados obtenidos mediante el análisis de 
+regresión lineal múltiple, utilizando los datos de la Encuesta de Bienestar 
+Social 2023 [@ministerio2023], permiten corroborar varias de las hipótesis 
+iniciales y responder la pregunta de investigación en buena medida.
 
-Los resultados descriptivos mostraron que el grupo de estudio se encuentra en un nivel medio alto de satisfacción con la vida, concentrado en los niveles más altos. La salud física y mental también resultaron mayoritariamente positivas. En el análisis bivariado, la salud mental presentó la mayor correlación con la satisfacción con la vida, lo que coincide con los resultados del modelo de regresión. Las variables de salud física y tiempo libre también mostraron correlaciones positivas y significativas, mientras que la seguridad presentó una correlación débil aunque significativa, y el ATD no mostró una correlación estadísticamente significativa.
+Los resultados descriptivos mostraron que el grupo de estudio se encuentra 
+en un nivel medio alto de satisfacción con la vida, concentrado en los 
+niveles más altos. La salud física y mental también resultaron mayoritariamente 
+positivas. En el análisis bivariado, la salud mental presentó la mayor 
+correlación con la satisfacción con la vida, lo que coincide con los 
+resultados del modelo de regresión. Las variables de salud física y tiempo 
+libre también mostraron correlaciones positivas y significativas, mientras 
+que la seguridad presentó una correlación débil aunque significativa, y el 
+ATD no mostró una correlación estadísticamente significativa.
 
-El modelo de regresión lineal múltiple permitió confirmar la mayoría de las hipótesis iniciales. La salud mental fue la variable que explica con mayor fuerza la satisfacción con la vida, seguida por la salud física y el tiempo libre, todas con efectos positivos y significativos, confirmando las hipótesis H1, H2 y H3. La variable de seguridad mostró un efecto negativo y significativo, confirmando H4. En el caso del apoyo en el trabajo doméstico (H5), si bien no alcanzó relevancia estadística en el modelo completo, su coeficiente fue negativo, acercándose a la dirección hipotetizada. Estas concordancias corroboran en gran medida las propuestas de Veenhoven (2000, 2011) sobre los principales factores que explican la satisfacción con la vida.
+El modelo de regresión lineal múltiple permitió confirmar la mayoría de las 
+hipótesis iniciales. La salud mental fue la variable que explica con mayor 
+fuerza la satisfacción con la vida, seguida por la salud física y el tiempo 
+libre, todas con efectos positivos y significativos, confirmando las hipótesis 
+H1, H2 y H3. La variable de seguridad mostró un efecto negativo y 
+significativo, confirmando H4. En el caso del apoyo en el trabajo doméstico 
+(H5), si bien no alcanzó relevancia estadística en el modelo completo, su 
+coeficiente fue negativo, acercándose a la dirección hipotetizada. Estas 
+concordancias corroboran en gran medida las propuestas de Veenhoven 
+[@veenhoven2000; @veenhoven2011] sobre los principales factores que explican 
+la satisfacción con la vida.
 
-En cuanto a las diferencias por género, en ambos modelos la salud mental y la salud física fueron las variables explicativas más fuertes, en concordancia con el modelo de la población total. La principal diferencia fue que, en hombres, el tiempo libre emergió como tercera variable explicativa relevante con efecto positivo, mientras que en mujeres las únicas variables con efecto significativo fueron salud física y mental. Para ambos grupos, el apoyo en el trabajo doméstico no resultó significativo.
+En cuanto a las diferencias por género, en ambos modelos la salud mental y 
+la salud física fueron las variables explicativas más fuertes, en concordancia 
+con el modelo de la población total. La principal diferencia fue que, en 
+hombres, el tiempo libre emergió como tercera variable explicativa relevante 
+con efecto positivo, mientras que en mujeres las únicas variables con efecto 
+significativo fueron salud física y mental. Para ambos grupos, el apoyo en el 
+trabajo doméstico no resultó significativo.
 
-Estos resultados permiten reflexionar sobre los límites y alcances del marco teórico utilizado. Las teorías clásicas del bienestar subjetivo (Diener, 1994; Veenhoven, 2000, 2011) plantean que factores como la salud física y mental, la seguridad, la libertad personal y las condiciones materiales explican las diferencias en satisfacción con la vida. Sin embargo, los resultados de este estudio muestran que estos factores no afectan de igual manera a todas las personas, y que el género opera como un eje estructurante que condiciona la forma en que se experimenta y valora el bienestar. Por ejemplo, en los hombres el tiempo libre aparece como un factor relevante, mientras que en las mujeres este pierde fuerza, adquiriendo mayor importancia la salud física. Esto podría estar vinculado a la carga desigual de cuidados y trabajo doméstico no remunerado (Fraser, 1995; Kirkwood, 1982), que enfrenta a las mujeres a mayores limitaciones estructurales.
+Estos resultados permiten reflexionar sobre los límites y alcances del marco 
+teórico utilizado. Las teorías clásicas del bienestar subjetivo 
+[@diener1994; @veenhoven2000; @veenhoven2011] plantean que factores como la 
+salud física y mental, la seguridad, la libertad personal y las condiciones 
+materiales explican las diferencias en satisfacción con la vida. Sin embargo, 
+los resultados de este estudio muestran que estos factores no afectan de igual 
+manera a todas las personas, y que el género opera como un eje estructurante 
+que condiciona la forma en que se experimenta y valora el bienestar. Por 
+ejemplo, en los hombres el tiempo libre aparece como un factor relevante, 
+mientras que en las mujeres este pierde fuerza, adquiriendo mayor importancia 
+la salud física. Esto podría estar vinculado a la carga desigual de cuidados y trabajo 
+doméstico no remunerado [@fraser1994; @kirkwood1982], que enfrenta a las 
+mujeres a mayores limitaciones estructurales.
 
-Que la variable de apoyo en el trabajo doméstico no sea significativa en ningún modelo sugiere que su impacto podría ser indirecto o estar mediado por otras dimensiones no consideradas, lo que invita a repensar la operacionalización de este tipo de variables en futuras investigaciones.
+Que la variable de apoyo en el trabajo doméstico no sea significativa en 
+ningún modelo sugiere que su impacto podría ser indirecto o estar mediado por 
+otras dimensiones no consideradas, lo que invita a repensar la 
+operacionalización de este tipo de variables en futuras investigaciones.
 
-En consecuencia, se propone que el bienestar subjetivo no se explica solamente por factores individuales o generales, sino que está atravesado por estructuras de poder, especialmente las relaciones de género. Esto refuerza la idea de la satisfacción con la vida como una construcción social, y subraya la necesidad de que investigaciones futuras integren enfoques interseccionales para producir conocimiento más situado y socialmente relevante.
+En consecuencia, se propone que el bienestar subjetivo no se explica 
+solamente por factores individuales o generales, sino que está atravesado por 
+estructuras de poder, especialmente las relaciones de género. Esto refuerza 
+la idea de la satisfacción con la vida como una construcción social, y 
+subraya la necesidad de que investigaciones futuras integren enfoques 
+interseccionales para producir conocimiento más situado y socialmente 
+relevante.
 
 ## Limitaciones
 
-A nivel teórico, este estudio se basa en modelos clásicos de bienestar subjetivo que podrían no considerar otras variables no tradicionales relevantes para la satisfacción con la vida, por lo que se propone incorporar marcos teóricos interseccionales en futuras investigaciones. Asimismo, las variables explicativas escogidas no consideran diferencias culturales o contextuales entre distintos grupos sociales.
+A nivel teórico, este estudio se basa en modelos clásicos de bienestar 
+subjetivo que podrían no considerar otras variables no tradicionales relevantes 
+para la satisfacción con la vida, por lo que se propone incorporar marcos 
+teóricos interseccionales en futuras investigaciones. Asimismo, las variables 
+explicativas escogidas no consideran diferencias culturales o contextuales 
+entre distintos grupos sociales.
 
-A nivel metodológico, los datos utilizados están sujetos a las percepciones individuales de las personas, lo cual podría complementarse con indicadores objetivos o metodologías mixtas que combinen datos cualitativos y cuantitativos. Además, la eliminación de casos perdidos por lista puede sesgar la muestra, lo que podría abordarse mediante técnicas que preserven una mayor cantidad de datos.
+A nivel metodológico, los datos utilizados están sujetos a las percepciones 
+individuales de las personas, lo cual podría complementarse con indicadores 
+objetivos o metodologías mixtas que combinen datos cualitativos y 
+cuantitativos. Además, la eliminación de casos perdidos por lista puede 
+sesgar la muestra, lo que podría abordarse mediante técnicas que preserven 
+una mayor cantidad de datos.
 
 ## Proyecciones futuras
 
-A partir de los hallazgos de este estudio, se abren varias líneas de trabajo futuro. En primer lugar, sería relevante incorporar marcos teóricos interseccionales que permitan analizar el bienestar subjetivo considerando, además del género, otras dimensiones estructurantes como la clase social, la edad o el territorio, lo que enriquecería la comprensión de las desigualdades en satisfacción con la vida.
+A partir de los hallazgos de este estudio, se abren varias líneas de trabajo 
+futuro. En primer lugar, sería relevante incorporar marcos teóricos 
+interseccionales que permitan analizar el bienestar subjetivo considerando, 
+además del género, otras dimensiones estructurantes como la clase social, la 
+edad o el territorio, lo que enriquecería la comprensión de las desigualdades 
+en satisfacción con la vida.
 
-En segundo lugar, futuras investigaciones podrían profundizar en por qué el apoyo en el trabajo doméstico no mostró un efecto significativo en este modelo, explorando si su impacto se expresa de forma indirecta a través de otras variables, como el tiempo libre o la salud mental, mediante modelos de mediación o moderación.
+En segundo lugar, futuras investigaciones podrían profundizar en por qué el 
+apoyo en el trabajo doméstico no mostró un efecto significativo en este 
+modelo, explorando si su impacto se expresa de forma indirecta a través de 
+otras variables, como el tiempo libre o la salud mental, mediante modelos de 
+mediación o moderación.
 
-En tercer lugar, sería valioso complementar este enfoque cuantitativo con metodologías cualitativas que permitan capturar la experiencia subjetiva de hombres y mujeres respecto al trabajo doméstico, el tiempo libre y la seguridad, aportando matices que un modelo de regresión no logra reflejar.
+En tercer lugar, sería valioso complementar este enfoque cuantitativo con 
+metodologías cualitativas que permitan capturar la experiencia subjetiva de 
+hombres y mujeres respecto al trabajo doméstico, el tiempo libre y la 
+seguridad, aportando matices que un modelo de regresión no logra reflejar.
 
-Finalmente, dado que este análisis se basa en datos transversales de 2023, sería pertinente dar seguimiento a estos indicadores en futuras versiones de la Encuesta de Bienestar Social, para observar si las diferencias de género identificadas se mantienen, se profundizan o disminuyen en el tiempo.
+Finalmente, dado que este análisis se basa en datos transversales de 2023, 
+sería pertinente dar seguimiento a estos indicadores en futuras versiones de 
+la Encuesta de Bienestar Social [@ministerio2023], para observar si las 
+diferencias de género identificadas se mantienen, se profundizan o disminuyen 
+en el tiempo.
