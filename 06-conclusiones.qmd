@@ -2,8 +2,6 @@
 title: "Conclusiones"
 ---
 
-# Discusión y conclusiones
-
 La presente investigación buscó responder a la pregunta sobre qué factores explican el nivel de satisfacción con la vida de adultos en Chile, y si existen diferencias según género. Para ello se investigó el efecto de las variables salud mental, salud física, tiempo libre, seguridad y apoyo en el trabajo doméstico (ATD). Los resultados obtenidos mediante el análisis de regresión lineal múltiple, utilizando los datos de la Encuesta de Bienestar Social 2023, permiten corroborar varias de las hipótesis iniciales y responder la pregunta de investigación en buena medida.
 
 Los resultados descriptivos mostraron que el grupo de estudio se encuentra en un nivel medio alto de satisfacción con la vida, concentrado en los niveles más altos. La salud física y mental también resultaron mayoritariamente positivas. En el análisis bivariado, la salud mental presentó la mayor correlación con la satisfacción con la vida, lo que coincide con los resultados del modelo de regresión. Las variables de salud física y tiempo libre también mostraron correlaciones positivas y significativas, mientras que la seguridad presentó una correlación débil aunque significativa, y el ATD no mostró una correlación estadísticamente significativa.
