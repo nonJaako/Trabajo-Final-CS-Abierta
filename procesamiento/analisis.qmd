@@ -23,7 +23,7 @@ pacman::p_load(
 options(scipen = 999)
 
 # 2. Cargar la base de datos que guardamos en la preparación
-load("../input/base_preparada.RData")
+load("input/base_preparada.RData")
 
 # --- ESTADÍSTICOS DESCRIPTIVOS ---
 

@@ -32,7 +32,24 @@ En el modelo para mujeres (R² = 0.368, p < .001), la salud física es el segund
 
 Estos resultados muestran que, si bien la salud física y mental son factores clave en ambos géneros, existen matices relevantes: en los hombres el tiempo libre emerge como un factor relevante, mientras que en las mujeres destaca con mayor fuerza el rol de la salud física. La seguridad muestra efectos significativos solo en el modelo masculino, y el apoyo en las tareas domésticas no resulta significativo en ningún grupo.
 
-::: {.content-visible when-format="html"}
-*La tabla de coeficientes de los modelos de regresión será incorporada por el 
-equipo en una sección posterior.*
-:::
+### Tabla comparativa de modelos de regresión
+
+```{r}
+#| label: tbl-regresiones
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(sjPlot, lm.beta)
+
+# Cargar directamente los modelos ya estimados
+load("input/modelos_regresion.RData")
+
+# Generar la tabla
+sjPlot::tab_model(
+  model1, model2, modelPT, modelH, modelM,
+  dv.labels = c("M1 (Parcial)", "M2 (Parcial)", "M3 (Completo)", "M4 (Hombres)", "M5 (Mujeres)"),
+  title = "Tabla 1. Modelos de Regresión Lineal Múltiple para Satisfacción con la Vida"
+)
