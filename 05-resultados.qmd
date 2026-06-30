@@ -1,9 +1,6 @@
 ﻿---
 title: "Resultados"
 ---
-Interpreta resultados, limitaciones y aportes.
-
-# Resultados
 
 ## Análisis descriptivo y bivariado
 
