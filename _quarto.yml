@@ -11,7 +11,7 @@ book:
   title: "Satisfacción con la vida y sus determinantes en población adulta en Chile"
   subtitle: Trabajo final
   output-file: reportes-facso-plantilla
-  repo-url: https://github.com/KAravena/reportesfacsobook_template  #URL del repositorio del libro (cambia segun tu repo)
+  repo-url: https://github.com/nonJaako/Trabajo-Final-CS-Abierta
   author:
     - name: Bianca Balmaceda
       affiliation: Departamento de Sociologia, Universidad de Chile
