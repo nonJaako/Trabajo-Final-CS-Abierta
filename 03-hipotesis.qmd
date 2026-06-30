@@ -3,3 +3,25 @@ title: "Hipótesis"
 ---
 
 Hipótesis de investigación. Deben ser pre-registradas.
+
+# Hipótesis
+
+A partir del marco teórico expuesto, se plantean las siguientes hipótesis de investigación, pre-registradas antes de realizar el análisis principal mediante OSF (PONER DOI):
+
+**H1.** A mayor nivel de salud mental, mayor es la satisfacción con la vida (b1 > 0).
+
+**H2.** A mayor nivel de salud física, mayor es la satisfacción con la vida (b2 > 0).
+
+**H3.** A mayor disponibilidad de tiempo libre, mayor es la satisfacción con la vida (b3 > 0).
+
+**H4.** A mayor percepción de inseguridad, menor es la satisfacción con la vida (b4 < 0).
+
+**H5.** A mayor apoyo recibido en el trabajo doméstico, menor es la satisfacción con la vida (b5 < 0).
+
+Estas hipótesis se expresan formalmente en la siguiente ecuación de regresión lineal múltiple:
+
+$$
+\text{satisfacción con la vida} = b_1 \cdot \text{salud mental} + b_2 \cdot \text{salud física} + b_3 \cdot \text{tiempo libre} + b_4 \cdot \text{seguridad} + b_5 \cdot \text{apoyo en el trabajo doméstico} + e
+$$
+
+Adicionalmente, se busca explorar si los efectos de estas variables difieren entre hombres y mujeres, en línea con el enfoque de género adoptado en este estudio.
