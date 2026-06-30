@@ -45,7 +45,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(sjPlot, lm.beta)
 
 # Cargar directamente los modelos ya estimados
-load("input/modelos_regresion.RData")
+load("output/modelos_regresion.RData")
 
 # Generar la tabla optimizada para que quepa en el ancho de la página
 sjPlot::tab_model(
