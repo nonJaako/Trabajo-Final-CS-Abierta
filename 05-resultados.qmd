@@ -34,26 +34,36 @@ Estos resultados muestran que, si bien la salud física y mental son factores cl
 
 ### Tabla comparativa de modelos de regresión
 
+
 ```{r}
 #| label: tbl-regresiones
 #| echo: false
-#| message: false
-#| warning: false
 #| results: asis
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(sjPlot, lm.beta)
+pacman::p_load(sjPlot, knitr, modelsummary)
 
-# Cargar directamente los modelos ya estimados
-load("input/modelos_regresion.RData")
+load("output/modelos_regresion.RData")
 
-# Generar la tabla optimizada para que quepa en el ancho de la página
-sjPlot::tab_model(
-  model1, model2, modelPT, modelH, modelM,
-  dv.labels = c("M1 (Parcial)", "M2 (Parcial)", "M3 (Completo)", "M4 (Hombres)", "M5 (Mujeres)"),
-  title = "Tabla 1. Modelos de Regresión Lineal Múltiple para Satisfacción con la Vida",
-  show.ci = FALSE,        # Quitamos los Intervalos de Confianza para achicar el ancho
-  show.se = TRUE,         # Dejamos los Errores Estándar (formato tradicional APA)
-  collapse.se = TRUE,     # Colapsa el error estándar abajo del coeficiente para ahorrar columnas
-  CSS = list(css.table = "font-size: 85%; width: 100%; max-width: 100%;") # Ajuste de tamaño
-)
+if (knitr::is_html_output()) {
+  sjPlot::tab_model(
+    model1, model2, modelPT, modelH, modelM,
+    dv.labels = c("M1 (Parcial)", "M2 (Parcial)", "M3 (Completo)", 
+                  "M4 (Hombres)", "M5 (Mujeres)"),
+    title = "Tabla 1. Modelos de Regresión Lineal Múltiple para Satisfacción con la Vida",
+    show.ci = FALSE,
+    show.se = TRUE,
+    collapse.se = TRUE
+  )
+} else {
+  modelsummary(
+    list("M1" = model1, "M2" = model2, "M3" = modelPT, 
+         "M4" = modelH, "M5" = modelM),
+    title = "Tabla 1. Modelos de Regresión Lineal Múltiple para Satisfacción con la Vida",
+    stars = TRUE,
+    statistic = "std.error",
+    output = "kableExtra",
+    booktabs = TRUE
+  )
+}
+```
